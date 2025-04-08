@@ -1,0 +1,16 @@
+data:
+  raw_path:
+    train: "data/raw/train.csv"
+    stores: "data/raw/stores.csv"
+    features: "data/raw/features.csv"
+  processed_path: "data/processed"
+training:
+  cutoff_date: "2012-07-20"
+  test_size: 8292
+  random_state: 42
+  target: "Weekly_Sales"
+  param_dist: {}
+model:
+  path: "artifacts/optimized_xgboost_model.pkl"
+evaluation:
+  r2_threshold: 0.9
