@@ -1,0 +1,19 @@
+Desempenho do modelo:
+
+MAE (Mean Absolute Error): Mede o erro médio absoluto entre as previsões e os valores reais. No seu caso, seu modelo tem um erro médio de aproximadamente 1949.33 unidades.
+Quanto menor o MAE, melhor a precisão do modelo.
+
+RMSE (Root Mean Squared Error): Calcula a raiz quadrada do erro médio quadrático, penalizando erros maiores mais fortemente.
+Um valor de 3358.61 indica que há alguns erros significativos nas previsões. 
+Normalmente, o RMSE deve ser interpretado comparado ao MAE—se estiver muito maior, pode significar que há outliers influenciando o modelo.
+
+MAPE (Mean Absolute Percentage Error): Representa o erro médio relativo das previsões em relação ao valor real.
+No seu caso, um MAPE de 57.48% indica que, em média, suas previsões estão 57,48% afastadas dos valores reais.
+Modelos com MAPE acima de 50% são geralmente considerados de baixa precisão.
+
+R² Score (Coeficiente de Determinação): Mede o quão bem o modelo explica a variabilidade dos dados.
+Um valor de 0.9612 sugere que 96,12% da variação nos dados reais é explicada pelo modelo, o que indica um excelente ajuste.
+
+Em resumo, apesar do alto valor do MAE e RMSE, o R² Score sugere que seu modelo está capturando bem a relação entre os dados.
+No entanto, o MAPE elevado indica que pode haver um problema de escala ou erro alto em algumas previsões.
+Vale a pena verificar se o modelo está sofrendo com outliers ou se a normalização dos dados pode ajudar a reduzir esses erros.
