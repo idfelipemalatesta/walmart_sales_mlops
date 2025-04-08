@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walmart Sales - MLOps</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5 text-center">Walmart Store Sales</h2>
+        <h3 class="mt-5 text-center">MLOps Nível 3</h3>
+        <h4 class="mt-5 text-center">Automação das Operações de CI/CD no Pipeline de Machine Learning</h4>
+        <div class="card mt-4">
+            <div class="card-body text-center">
+                <h5 class="card-title">Instruções</h5>
+                <p class="card-text">Preencha os campos abaixo e clique no botão para prever o valor semanal da venda.</p>
+            </div>
+        </div>
+        
+        <form action="/predict" method="post" class="mt-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Store">Store</label>
+                        <input type="number" step="any" class="form-control" id="Store" name="Store" placeholder="Digite a Store" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Dept">Dept</label>
+                        <input type="number" step="any" class="form-control" id="Dept" name="Dept" placeholder="Digite o Dept" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Date">Data</label>
+                        <input type="date" class="form-control" id="Date" name="Date" placeholder="Digite a Data" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="IsHoliday">IsHoliday</label>
+                        <select class="form-control" id="IsHoliday" name="IsHoliday" required>
+                            <option value="false" selected>False</option>
+                            <option value="true">True</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Temperature">Temperature</label>
+                        <input type="number" step="any" class="form-control" id="Temperature" name="Temperature" placeholder="Digite a Temperatura" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Fuel_Price">Fuel_Price</label>
+                        <input type="number" step="any" class="form-control" id="Fuel_Price" name="Fuel_Price" placeholder="Digite o Fuel_Price" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="MarkDown1">MarkDown1</label>
+                        <input type="number" class="form-control" id="MarkDown1" name="MarkDown1" placeholder="Digite o MarkDown1">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="MarkDown2">MarkDown2</label>
+                        <input type="number" class="form-control" id="MarkDown2" name="MarkDown2" placeholder="Digite o MarkDown2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="MarkDown3">MarkDown3</label>
+                        <input type="number" class="form-control" id="MarkDown3" name="MarkDown3" placeholder="Digite o MarkDown3">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="MarkDown4">MarkDown4</label>
+                        <input type="number" class="form-control" id="MarkDown4" name="MarkDown4" placeholder="Digite o MarkDown4">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="MarkDown5">MarkDown5</label>
+                        <input type="number" class="form-control" id="MarkDown5" name="MarkDown5" placeholder="Digite o MarkDown5">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="CPI">CPI</label>
+                        <input type="number" step="any" class="form-control" id="CPI" name="CPI" placeholder="Digite o CPI" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Unemployment">Unemployment</label>
+                        <input type="number" step="any" class="form-control" id="Unemployment" name="Unemployment" placeholder="Digite o Unemployment" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Type">Type</label>
+                        <input type="text" class="form-control" id="Type" name="Type" placeholder="Digite o Type" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Size">Size</label>
+                        <input type="number" class="form-control" id="Size" name="Size" placeholder="Digite o Size" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Prever o Valor</button>
+            </div>
+        </form>
+        
+        {% if prediction_text %}
+            <div class="alert alert-success mt-4 text-center" role="alert">
+                <h4 class="alert-heading">{{ prediction_text }}</h4>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
