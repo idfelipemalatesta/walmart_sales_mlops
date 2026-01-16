@@ -19,7 +19,7 @@ O projeto tem como objetivo realizar a previsão de vendas para um período de t
 │       └── mlops-pipeline.yml    			# Arquivo do GitHub Actions para automação
 │
 ├── artifacts/                    			# Armazena modelos treinados e objetos de pré-processamento
-│   ├── optimized_xgboost_model.pkl
+│   ├── xgboost_model.pkl
 │
 ├── config/                       			# Arquivos de configuração
 │   ├── config.yaml               			# Hiperparâmetros de modelo e pré-processamento
